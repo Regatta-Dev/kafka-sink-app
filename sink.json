@@ -1,0 +1,25 @@
+{
+    "name": "test-sink-connector",
+    "config": {
+        "connector.class": "dev.regatta.sinkConnector.RegSinkConnector",
+        "tasks.max": "1",
+        "topics": "pageviews",
+        "plugin.path": "/usr/share/java/custom-connector/",
+        "rotate.interval.ms": "1000",
+        "max.poll.interval.ms": "900000",
+        "username": "YOUR_USERNAME",
+        "password": "YOUR_PASSWORD",
+        "metadataDevice": "m10d0",
+        "url": "<CLUSTER_IP>:<CLUSTER_PORT>",
+        "executionTimeout": "4000",
+        "maxBatchSize": "1",
+	    "exactlyOnce": "false",
+        "tableName": "pageviews",
+        "minNumRecordsToResume": "10000",
+        "maxNumRecordsInProcess": "400000",
+        "maxThreadsPerPartition": "2",
+        "tableAutoCreate": "true",
+        "enabledThrottling": "true",
+        "enabledMetrics": "false"
+    }
+}
