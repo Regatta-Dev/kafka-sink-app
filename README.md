@@ -1,4 +1,5 @@
 
+
 <div align="center">
   <picture>
     <source srcset="assets/kafka+regatta-dark.png" media="(prefers-color-scheme: dark)">
@@ -9,17 +10,14 @@
 
 # Docker Kafka Cluster to Regatta Cluster via Sink Connector
 
-This project demonstrates connecting a Docker-based Kafka Cluster to a Regatta Cluster using a Kafka Sink Connector. **Note:** This setup does not use Kafka Cloud services.
+This project demonstrates connecting a Docker-based Kafka Cluster to a Regatta Cluster using a Kafka Sink Connector. 
 
-## Limitations
-- **Insert-only Support:** Currently, only insert operations are supported.
-- **Delivery Guarantee:** Supports "at least once" delivery.
-- **Record Format:** Only AVRO is supported.
+**Note:** This setup does not use Kafka Cloud services.
 
 ---
 
 ## Prerequisites
-- Request the Kafka Sink Connector from the Regatta support team.
+- Regatta Sink Connector
 
 ---
 
@@ -38,17 +36,18 @@ This project demonstrates connecting a Docker-based Kafka Cluster to a Regatta C
 
 ### 2. Clone the Repository
 ```bash
-git clone <repository-url>
-cd <repository-folder>
+git clone git@github.com:Regatta-Dev/kafka-sink-app.git
+cd kafka-sink-app
 ```
 
 ### 3. Add the Regatta Sink Connector
-Place the Regatta Sink Connector JAR file into the repository folder.
+Place the Regatta Sink Connector JAR file in the repository folder.
 
 ### 4. Configure `sink.json`
 Update the `sink.json` file:
 - Set the `url` field to your cluster’s **IP:PORT** (found in the Regatta Platform).
 - Add your `username` and `password`. Contact Regatta support if credentials are unavailable.
+- Configure device names if needed.
 
 ### 5. Build the Docker Compose Setup
 ```bash
@@ -100,17 +99,19 @@ Expected output:
 ```
 
 ### 12. Verify Data in Regatta
-1. Log in to the Regatta Platform.
-2. Connect to your cluster.
-3. Run a query to verify the data, e.g.:
+Run a query to verify the data, e.g.:
    ```sql
    SELECT COUNT(*) FROM pageviews;
    ```
    Example output:
    ```
-   11034
+   1000000
    ```
-
 ---
+
+## Limitations
+- **Insert-only Support:** Currently, only insert operations are supported.
+- **Delivery Guarantee:** Supports "at least once" delivery.
+- **Record Format:** Only AVRO is supported.
 
 © 2024 Regatta Team
