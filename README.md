@@ -99,7 +99,7 @@ Expected output:
 ```
 
 ### 12. Verify Data in Regatta
-Run a query to verify the data, e.g.:
+Run a query to verify that all data was processed, e.g.:
    ```sql
    SELECT COUNT(*) FROM pageviews;
    ```
