@@ -12,7 +12,7 @@
 
 This project demonstrates connecting a Docker-based Kafka Cluster to a Regatta Cluster using a Kafka Sink Connector. 
 
-**Note:** This setup does not use Kafka Cloud services.
+**Note:** This setup does not use Kafka Cloud services. We use a dockerized Kafka cluster that can be locally deployed on any VM.
 
 ---
 
