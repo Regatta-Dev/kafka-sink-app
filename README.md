@@ -8,7 +8,7 @@
   </picture>
 </div>
 
-# Docker Kafka Cluster to Regatta Cluster via Sink Connector
+# Kafka to Regatta Cluster via Sink Connector
 
 This project demonstrates connecting a Docker-based Kafka Cluster to a Regatta Cluster using a Kafka Sink Connector. 
 
