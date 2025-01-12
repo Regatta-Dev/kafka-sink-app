@@ -100,7 +100,7 @@ Expected output:
 
 ### 12. Open the Kafka Control Center (Optional)
 1. Open your browser and navigate to the Kafka Control Center URL on the VM hosting the Kafka cluster:
-```http
+```
 http://localhost:9021/
 ```
 2. Go to "Consumers" and click on your consumer, e.g., "connect-test-sink-connector".
