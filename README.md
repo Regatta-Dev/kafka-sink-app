@@ -1,23 +1,23 @@
-
-
 <div align="center">
   <picture>
     <source srcset="assets/kafka+regatta-dark.png" media="(prefers-color-scheme: dark)">
     <source srcset="assets/kafka+regatta-light.png" media="(prefers-color-scheme: light)">
-    <img src="assets/kafka+regatta-dark.png" alt="Banner" title="Banner" style="width:55%;">
+    <img src="assets/kafka+regatta-dark.png" alt="Kafka to Regatta Cluster Banner" title="Kafka to Regatta Cluster Banner" style="width:55%;">
   </picture>
 </div>
 
 # Kafka to Regatta Cluster via Sink Connector
 
-This project demonstrates connecting a Docker-based Kafka Cluster to a Regatta Cluster using a Kafka Sink Connector. 
+This project demonstrates how to connect a Docker-based Kafka Cluster to a Regatta Cluster using a Kafka Sink Connector.
 
-**Note:** This setup does not use Kafka Cloud services. We use a dockerized Kafka cluster that can be locally deployed on any VM.
+**Note:** This setup uses a local, dockerized Kafka cluster instead of Kafka Cloud services. It can be deployed on any virtual machine (VM).
 
 ---
 
 ## Prerequisites
-- Regatta Sink Connector
+- Regatta Sink Connector JAR file
+- Docker and Docker Compose installed
+- Access to the Regatta Platform
 
 ---
 
@@ -98,15 +98,28 @@ Expected output:
 {"name":"test-sink-connector","config":{"connector.class":"dev.regatta.sinkConnector.RegSinkConnector", ...}}
 ```
 
-### 12. Verify Data in Regatta
-Run a query to verify that all data was processed, e.g.:
-   ```sql
-   SELECT COUNT(*) FROM pageviews;
-   ```
-   Example output:
-   ```
-   1000000
-   ```
+### 12. Open the Kafka Control Center (Optional)
+1. Open your browser and navigate to the Kafka Control Center URL on the VM hosting the Kafka cluster:
+```http
+http://localhost:9021/
+```
+2. Go to "Consumers" and click on your consumer, e.g., "connect-test-sink-connector".
+3. View the consumed records being transferred from the Kafka cluster to the Regatta cluster.
+
+<div align="center">
+  <img src="assets/kafka_control_center.png" alt="Kafka Control Center">
+</div>
+
+### 13. Verify Data in Regatta
+Run a query to confirm that the data was successfully processed:
+```sql
+SELECT COUNT(*) FROM pageviews;
+```
+Example output:
+```
+1000000
+```
+
 ---
 
 ## Limitations
@@ -114,4 +127,7 @@ Run a query to verify that all data was processed, e.g.:
 - **Delivery Guarantee:** Supports "at least once" delivery.
 - **Record Format:** Only AVRO is supported.
 
+---
+
 © 2024 Regatta Team
+
