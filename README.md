@@ -2,7 +2,7 @@
   <picture>
     <source srcset="assets/kafka+regatta-dark.png" media="(prefers-color-scheme: dark)">
     <source srcset="assets/kafka+regatta-light.png" media="(prefers-color-scheme: light)">
-    <img src="assets/kafka+regatta-dark.png" alt="Kafka to Regatta Cluster Banner" title="Kafka to Regatta Cluster Banner" style="width:55%;">
+    <img src="assets/kafka+regatta-dark.png" alt="Kafka to Regatta Cluster Banner" title="Kafka to Regatta Cluster Banner" style="width:35%;">
   </picture>
 </div>
 
